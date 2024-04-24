@@ -1,0 +1,10 @@
+<p>chat test works!</p>
+<mat-list *ngFor="let msg of messages">
+  <mat-list-item>{{ msg }}</mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<form>
+  <input type="text" name="message" [(ngModel)]="message" />
+  <button (click)="sendMessage()">send</button>
+</form>

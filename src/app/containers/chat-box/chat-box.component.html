@@ -1,0 +1,48 @@
+<div id="chat">
+  <ng-container *ngIf="isChatProfileClicked; then clicked; else notClicked">
+  </ng-container>
+</div>
+
+<ng-template #clicked>
+  <div id="chatMessage">
+    <div id="chatHeader"></div>
+    <div id="chatBody">
+      <mat-card
+        *ngFor="let message of conversationObj.messages"
+        style="max-width: 50%; border-radius: 00px 20px 20px 20px"
+      >
+        <mat-card-content>{{ message.body }}</mat-card-content>
+      </mat-card>
+    </div>
+    <div id="chatFooter">
+      <div id="emojiIcon">
+        <mat-icon>mood</mat-icon>
+        <mat-icon>attach_file</mat-icon>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center">
+        <form>
+          <div id="typeText">
+            <textarea placeholder="Type a message"> </textarea>
+          </div>
+        </form>
+        <button type="submit">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+      <span>
+        <div id="micIcon">
+          <mat-icon>mic</mat-icon>
+        </div>
+      </span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #notClicked>
+  <div id="chatPlaceholder">
+    <img
+      src="https://cdn.ndtv.com/tech/images/whatsapp_web_connected.jpg"
+      alt=""
+    />
+  </div>
+</ng-template>

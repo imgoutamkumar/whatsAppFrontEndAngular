@@ -1,0 +1,41 @@
+<div id="chatContainer">
+  <mat-sidenav-container>
+    <!--  <mat-sidenav
+      class="communitiesBar"
+      #sidenav
+      (keydown.escape)="close('escape')"
+    >
+      <div class="communitySection">
+        <div class="community_header">
+          <div id="elements">
+            <mat-icon>arrow_back</mat-icon>
+
+            <div id="community_title">
+              <h1>Communities</h1>
+            </div>
+          </div>
+        </div>
+        <div id="community_body"></div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav class="chatBar" #chatBar (keydown.escape)="close('escape')">
+      <div class="chatBarSection">
+        <div class="community_header"></div>
+      </div>
+    </mat-sidenav> -->
+
+    <mat-sidenav-content>
+      <app-side-bar
+        [contentObj]="conversation"
+        (communityEvent)="sidenavBarCalling()"
+        (chatEvent)="chatBarCalling()"
+        (chatData)="chatConversation($event)"
+      ></app-side-bar>
+      <app-chat-box
+        [conversationObj]="conversationData"
+        [isChatProfileClicked]="profileclicked"
+      ></app-chat-box>
+      <!-- <p><button mat-button (click)="sidenav.open()">Open</button></p> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

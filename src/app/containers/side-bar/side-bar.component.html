@@ -1,0 +1,85 @@
+<div id="sidebar">
+  <ng-container *ngIf="iscommunity; then community"> </ng-container>
+
+  <ng-template #community>
+    <div id="test1">
+      <div id="community_header">
+        <div id="elements">
+          <mat-icon>arrow_back</mat-icon>
+
+          <div id="community_title">
+            <h1>Communities</h1>
+          </div>
+        </div>
+      </div>
+      <div id="community_body"></div>
+    </div>
+  </ng-template>
+
+  <div class="row1">
+    <div id="sidebarHeader">
+      <div class="avatarContainer">
+        <img
+          src="https://www.stockvault.net/data/2011/04/12/121745/preview16.jpg"
+        />
+      </div>
+      <div class="actionsContainer">
+        <div class="icons">
+          <mat-icon id="headerIcons" (click)="OpenCommunityBar()"
+            >groups</mat-icon
+          >
+          <mat-icon id="headerIcons" (click)="OpenDonut()"
+            >donut_large</mat-icon
+          >
+
+          <mat-icon id="headerIcons" (click)="OpenChatBar()">chat</mat-icon>
+
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>
+              <span>New group</span>
+            </button>
+            <button mat-menu-item>
+              <span>New community</span>
+            </button>
+            <button mat-menu-item>
+              <span>Archived</span>
+            </button>
+            <button mat-menu-item>
+              <span>Starred message</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div id="searchBox">
+      <mat-icon id="searchicon" fontIcon="searchBox"></mat-icon>
+      <input type="text" placeholder="Search or Start the new chat" />
+      <mat-icon id="filtericon" fontIcon="filter_list"></mat-icon>
+    </div>
+  </div>
+  <div id="sidebarContent">
+    <!-- <h3>All chats are archived</h3> -->
+    <div
+      class="conversation"
+      *ngFor="let sideBarData of contentObj"
+      (click)="openChat(sideBarData)"
+    >
+      <div class="picture">
+        <img [src]="sideBarData.profile_pic" />
+      </div>
+      <div class="content">
+        <div class="conversationHeader">
+          <div class="name">{{ sideBarData.name }}</div>
+          <div class="time">{{ sideBarData.time }}</div>
+        </div>
+        <div class="conversationMessage">
+          <mat-icon>done_all</mat-icon>
+          {{ sideBarData.latestMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
